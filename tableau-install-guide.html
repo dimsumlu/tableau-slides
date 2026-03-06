@@ -163,20 +163,6 @@ html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
     user-select: none;
 }
 
-/* Large decorative ghost letter in corner */
-.ghost-letter {
-    position: absolute;
-    top: clamp(10px, 2vh, 20px);
-    right: clamp(20px, 4vw, 48px);
-    font-family: var(--font-display);
-    font-size: clamp(5rem, 18vw, 14rem);
-    font-weight: 700;
-    color: var(--text-primary);
-    opacity: 0.035;
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-}
 
 /* ===========================================
    REVEAL ANIMATIONS
@@ -744,122 +730,7 @@ code {
     z-index: 10000;
 }
 .edit-save-hint.show { opacity: 1; }
-
-/* ===========================================
-   MOBILE RESPONSIVE — 手机竖屏适配
-   =========================================== */
-@media (max-width: 768px) {
-
-    /* 字号在手机上放大，避免过小 */
-    :root {
-        --title-size: clamp(2rem, 8vw, 3rem);
-        --h2-size: clamp(1.5rem, 6vw, 2rem);
-        --h3-size: clamp(1.1rem, 4.5vw, 1.4rem);
-        --body-size: clamp(0.88rem, 3.5vw, 1rem);
-        --small-size: clamp(0.78rem, 3vw, 0.88rem);
-        --slide-padding: clamp(1.4rem, 5vw, 2rem);
-    }
-
-    /* 左侧 padding 减小，给内容更多空间 */
-    .slide-inner {
-        padding: var(--slide-padding) var(--slide-padding) 4rem var(--slide-padding);
-        justify-content: flex-start;
-        padding-top: clamp(2.5rem, 8vh, 4rem);
-    }
-
-    /* 双列变单列 */
-    .req-cols,
-    .install-cols,
-    .trouble-grid,
-    .toc-grid {
-        grid-template-columns: 1fr;
-        max-height: none;
-        overflow-y: auto;
-        gap: clamp(0.6rem, 2vw, 1rem);
-    }
-
-    /* 目录单列时限制高度可滚动 */
-    .toc-grid {
-        max-height: 70vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* ghost 大字母在手机上缩小避免干扰 */
-    .ghost-letter {
-        font-size: clamp(4rem, 22vw, 8rem);
-        opacity: 0.025;
-    }
-
-    /* 幻灯片编号调整位置，避免被底部导航挡住 */
-    .slide-num {
-        bottom: 4rem;
-        right: 1rem;
-        font-size: 0.65rem;
-    }
-
-    /* 导航圆点：移到底部，横排，更好点击 */
-    .nav-dots {
-        right: auto;
-        top: auto;
-        bottom: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: row;
-        gap: 10px;
-        background: rgba(250,249,247,0.85);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        padding: 8px 14px;
-        border-radius: 20px;
-        border: 1px solid rgba(26,26,26,0.08);
-    }
-
-    .nav-dot {
-        width: 8px; height: 8px;
-    }
-
-    /* step big number 手机上缩小 */
-    .step-big-num {
-        font-size: clamp(2.5rem, 12vw, 5rem);
-    }
-
-    /* verify checks 间距收紧 */
-    .verify-checks {
-        gap: clamp(6px, 2vw, 10px);
-    }
-
-    /* check-item padding 收紧 */
-    .check-item {
-        padding: clamp(8px, 2vw, 12px);
-    }
-
-    /* closing title 字号手机上调小一点 */
-    .closing-title {
-        font-size: clamp(1.6rem, 7vw, 2.5rem);
-    }
-
-    /* 编辑热区在手机上隐藏（手机不需要编辑） */
-    .edit-hotzone,
-    .edit-toggle,
-    .edit-save-hint {
-        display: none;
-    }
-}
-
-/* 手机横屏：内容紧凑 */
-@media (max-width: 768px) and (max-height: 500px) {
-    :root {
-        --slide-padding: clamp(0.8rem, 3vw, 1.2rem);
-        --title-size: clamp(1.4rem, 5vw, 2rem);
-        --body-size: clamp(0.75rem, 2.5vw, 0.9rem);
-    }
-    .slide-inner {
-        padding-top: clamp(1rem, 4vh, 2rem);
-    }
-}
 </style>
-
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -880,7 +751,6 @@ code {
      SLIDE 01 — TITLE
      ============================================================ -->
 <section class="slide slide-title" id="slide-1">
-    <div class="ghost-letter reveal-fade">T</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">Tableau 教学系列</div>
         <h1 class="title-main reveal">
@@ -908,7 +778,6 @@ code {
      SLIDE 02 — 目录 OVERVIEW
      ============================================================ -->
 <section class="slide" id="slide-2">
-    <div class="ghost-letter reveal-fade">目</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">本次教程内容</div>
         <h2 class="step-title reveal" style="font-family:var(--font-display); font-size:var(--h2-size); font-weight:600; color:var(--text-primary); margin-bottom:0;">
@@ -967,7 +836,6 @@ code {
      SLIDE 03 — 系统要求
      ============================================================ -->
 <section class="slide" id="slide-3">
-    <div class="ghost-letter reveal-fade">准</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">第一步：准备工作</div>
         <h2 class="step-title reveal">系统要求确认</h2>
@@ -1014,7 +882,6 @@ code {
      SLIDE 04 — 注册账号
      ============================================================ -->
 <section class="slide" id="slide-4">
-    <div class="ghost-letter reveal-fade">注</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">第二步</div>
         <div class="step-header reveal">
@@ -1075,7 +942,6 @@ code {
      SLIDE 05 — 下载
      ============================================================ -->
 <section class="slide" id="slide-5">
-    <div class="ghost-letter reveal-fade">载</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">第三步</div>
         <div class="step-header reveal">
@@ -1126,7 +992,6 @@ code {
      SLIDE 06 — 安装 Windows
      ============================================================ -->
 <section class="slide" id="slide-6">
-    <div class="ghost-letter reveal-fade">装</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">第四步 · Windows</div>
         <h2 class="step-title reveal">Windows 安装步骤</h2>
@@ -1185,7 +1050,6 @@ code {
      SLIDE 07 — 安装 Mac
      ============================================================ -->
 <section class="slide" id="slide-7">
-    <div class="ghost-letter reveal-fade">苹</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">第四步 · Mac</div>
         <h2 class="step-title reveal">Mac 安装步骤</h2>
@@ -1247,7 +1111,6 @@ code {
      SLIDE 08 — 验证安装
      ============================================================ -->
 <section class="slide" id="slide-8">
-    <div class="ghost-letter reveal-fade">验</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">第五步</div>
         <div class="step-header reveal">
@@ -1293,7 +1156,6 @@ code {
      SLIDE 09 — 常见问题 Windows (1)
      ============================================================ -->
 <section class="slide" id="slide-9">
-    <div class="ghost-letter reveal-fade">错</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">常见问题 · Windows</div>
         <h2 class="step-title reveal">Windows 报错解决方案（一）</h2>
@@ -1336,7 +1198,6 @@ code {
      SLIDE 10 — 常见问题 Windows (2)
      ============================================================ -->
 <section class="slide" id="slide-10">
-    <div class="ghost-letter reveal-fade">乱</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">常见问题 · Windows</div>
         <h2 class="step-title reveal">Windows 报错解决方案（二）</h2>
@@ -1383,7 +1244,6 @@ code {
      SLIDE 11 — 常见问题 Mac (1)
      ============================================================ -->
 <section class="slide" id="slide-11">
-    <div class="ghost-letter reveal-fade">Mac</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">常见问题 · Mac</div>
         <h2 class="step-title reveal">Mac 报错解决方案（一）</h2>
@@ -1426,7 +1286,6 @@ code {
      SLIDE 12 — 常见问题 Mac (2)
      ============================================================ -->
 <section class="slide" id="slide-12">
-    <div class="ghost-letter reveal-fade">缓</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">常见问题 · Mac</div>
         <h2 class="step-title reveal">Mac 报错解决方案（二）</h2>
@@ -1472,7 +1331,6 @@ code {
      SLIDE 13 — 上课前准备
      ============================================================ -->
 <section class="slide" id="slide-13">
-    <div class="ghost-letter reveal-fade">备</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">安装完成后</div>
         <h2 class="step-title reveal">上课前完成的准备工作</h2>
@@ -1515,7 +1373,6 @@ code {
      SLIDE 14 — 结束 / 遇到问题
      ============================================================ -->
 <section class="slide slide-closing" id="slide-14">
-    <div class="ghost-letter reveal-fade" style="opacity:0.025;">完</div>
     <div class="slide-inner">
         <div class="eyebrow reveal">遇到问题？</div>
         <div class="closing-title reveal">不要放弃，<br>这些问题<br>都有解决方法</div>
